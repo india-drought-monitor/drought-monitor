@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="India Drought Monitor: India's real-time drought condition and forecast">
+    <title>Drought Reporting | India Drought Monitor</title>
+    <link rel="shortcut icon" href="assets/images/logo.png">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+
+
+</head>
+
+<body>
+    <div class="main-header">
+        <h1>India Drought Monitor</h1>
+    </div>
+    <div class="nav">
+        <input type="checkbox" id="nav-check">
+        <div class="nav-header">
+            <div class="nav-title">
+                <p>India Drought Monitor</p>
+            </div>
+        </div>
+        <div class="nav-btn">
+            <label for="nav-check">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+        </div>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">Area Under Drought</a>
+            <a href="drought-early-warning-system.html" class="nav-link">Drought Early Warning System</a>
+            <a href="drought-time-series.html" class="nav-link">Drought Time Series</a>
+            <div class="navbar-dropdown">
+                <button class="nav-link dropbtn"> Drought Forecast</button>
+                <div class="dropdown-content">
+                    <a href="drought-forecast.html">Quantitative Drought Forecast</a>
+                    <a href="drought-outlook.html">Drought Outlooks</a>
+                </div>
+            </div>
+
+            <div class="navbar-dropdown">
+                <button class="nav-link dropbtn"> Streamflow Monitor</button>
+                <div class="dropdown-content">
+                    <a href="streamflow-monitor-7d.html">7 Days Mean Streamflow Percentile</a>
+                    <a href="streamflow-monitor-30d.html">30 Days Mean Streamflow Percentile</a>
+                </div>
+            </div>
+            <div class="navbar-dropdown">
+                <button class="nav-link dropbtn"> Drought Types</button>
+                <div class="dropdown-content">
+                    <a href="standardized-precipitation-index.html">Standardized Precipitation Index (SPI)</a>
+                    <a href="standardized-runoff-index.html">Standardized Runoff Index (SRI)</a>
+                    <a href="standardized-soil-moisture-index.html">Standardized Soil Moisture Index (SSI)</a>
+                </div>
+            </div>
+            <a href="drought-reporting.html" class="nav-link active-nav">Drought Reporting</a>
+            <a href="contact.html" class="nav-link"> Contact Us</a>
+        </div>
+    </div>
+
+    <div class="section-heading">
+        <h1>
+            Submit Report
+        </h1>
+    </div>
+
+    <div class="report-drought">
+        <p> Report drought-related conditions and impacts within India. Reporting regularly can
+            help people see what normal, wet and dry conditions look like in your area.</p>
+        <form class="report-drought-form" name="submit-to-google-sheet">
+            <input type="text" placeholder="Your State/Union Territory" class="form-control" name="state" required autocomplete="off"> <br>
+            <input type="text" placeholder="Your District" class="form-control" name="district" required autocomplete="off"> <br>
+            <input type="text" placeholder="What is the date? (Please use the calendar to select the date of your observation)"
+            class="form-control" name="reporting-date" required onfocus="(this.type='date')"><br>
+
+            <textarea placeholder="Describe Drought Impact in your area" class="form-control" rows="9" name="report"
+                required autocomplete="off"></textarea>
+
+
+            <input type="text" placeholder="Name" class="form-control" name="name" required autocomplete="off"> <br>
+            <input type="text" placeholder="Email" class="form-control" name="email" required autocomplete="off"><br>
+            
+            <button type="submit" class="submit-button">Submit</button>
+        </form>
+        <span id="message" class="success-message"></span>
+        <p>Website Visitors</p>
+        <script type="text/javascript" src="//rf.revolvermaps.com/0/0/7.js?i=538hvsm4w0v&amp;m=0&amp;c=ff0000&amp;cr1=ffffff&amp;sx=19" async="async"></script>
+
+    </div>
+
+    
+
+    
+    
+    <div class="footer">
+        <div class="footer-image">
+            <div class="footer-logo-2">
+                <a href="https://vmishra.people.iitgn.ac.in/water&climate/" target="_blank"><img
+                        src="assets/images/wcl_iitgn.png" alt="WCl IITGN"></a>
+            </div>
+            <div class="footer-logo-1">
+                <a href="https://dic.gov.in/" target="_blank"> <img src="assets/images/Media-Lab-Asia.png"
+                        alt="Media Lab Asia"> </a>
+            </div>
+        </div>
+
+        <div class="footer-menu">
+            <a href="disclaimer.html">Disclaimer</a> |
+            <a href="acknowledgement.html">Acknowledgement</a> |
+            <a href="contact.html">Contact Us</a>
+        </div>
+    </div>
+
+    <script>
+        const scriptURL = "https://script.google.com/macros/s/AKfycbwjCjwWn7SQoWjCx85wijxkidFgR1dne_oqiWBLlM7NXlva2lzsPi1jX7E-ZxIs4KWR/exec";
+       
+        const form = document.forms['submit-to-google-sheet']
+        const message = document.getElementById("message");
+
+        form.addEventListener('submit', e => {
+            e.preventDefault()
+            fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+                .then(response => {
+                    message.innerHTML = "Your Message has been sent successfully."
+                    setTimeout(function () {
+                        message.innerHTML = ""
+                    }, 2000)
+                    form.reset()
+                })
+                .catch(error => console.error('Error!', error.message))
+        })
+    </script>
+
+
+
+
+
+</body>
+</html>

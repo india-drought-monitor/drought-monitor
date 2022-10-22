@@ -1,0 +1,232 @@
+@media (min-width: 1600px) {}
+
+
+
+
+@media (max-width:1300px) {
+    /* Navbar */
+    .nav {
+        height: 50px;
+    }
+
+    .nav>.nav-btn {
+        display: inline-block;
+        position: absolute;
+        right: 0px;
+        top: 0px;
+    }
+
+    .nav>.nav-btn>label {
+        display: inline-block;
+        width: 25px;
+        max-height: 50px;
+        padding: 14px 10px 6px 10px;
+        cursor: pointer;
+    }
+
+    .nav>.nav-header {
+        display: inline;
+    }
+
+    .main-header {
+        display: none;
+    }
+
+    .nav>.nav-btn>label:hover,
+    .nav #nav-check:checked~.nav-btn>label {
+        background-color: rgb(244, 243, 243);
+        z-index: 100;
+    }
+
+    .nav>.nav-btn>label>span {
+        display: block;
+        width: 25px;
+        height: 8px;
+        border-top: 2px solid rgb(0, 0, 0);
+    }
+
+    .navbar-dropdown .dropbtn {
+        background-color: rgb(224, 224, 224);
+        display: block;
+        margin: 0 0;
+    }
+
+    .navbar-dropdown {
+        display: block;
+        width: 100%;
+    }
+
+
+    .nav>.nav-links {
+        position: absolute;
+        display: block;
+        width: 100%;
+        background-color: rgb(224, 224, 224);
+        transition: all 0.3s ease-in;
+        overflow-y: hidden;
+        top: 53px;
+        left: 0px;
+        z-index: 100;
+        margin-bottom: 20px;
+
+    }
+
+    .nav>.nav-links>a {
+        display: block;
+        margin: 0 0;
+    }
+
+    .nav>#nav-check:not(:checked)~.nav-links {
+        height: 0px;
+    }
+
+    .nav>#nav-check:checked~.nav-links {
+        height: calc(70vh - 50px);
+        overflow-y: auto;
+    }
+
+
+
+}
+
+
+@media (max-width:767px) {
+
+/* ********************* */
+/* Footer */
+/* ********************* */
+.footer-logo-1 img{
+    width: 120px;
+    padding: 10px;
+}
+
+.footer-logo-2 img{
+    width: 160px;
+    padding: 10px;
+}
+.footer-menu{
+    padding: 5px;
+}
+
+.footer-menu a{
+    padding: 5px;
+    font-size: 12px;
+}
+.main {
+    padding: 0px 0px;
+  }
+  #map {
+    width: calc(100% - 2px);
+    height: 60vh;
+  }
+  .leaflet-control-attribution {
+    background-color: yellow !important;
+    font-size: 12px !important;
+    width: 100vw;
+  }
+
+
+.data-table {
+    display: block;
+    margin: 2px 0;
+  }
+
+  table {
+    text-align: center;
+    font-size: 12px;
+    width: 95%;
+  }
+
+  td,
+  th {
+    border: 1px solid #000000;
+    text-align: left;
+    padding: 2px;
+  }
+
+  .section {
+    margin: 20px;
+  }
+  .section-heading{
+    font-size: 14px;
+}
+.contact-us-form{
+    margin: 20px 0;
+    padding: 0px;
+}
+.contact-image{
+    margin-bottom: 0px;
+}
+.contact-image img{
+    width: 100%;
+
+}
+.contact-image-caption p{
+    margin-bottom: 30px;
+    text-align: right;
+}
+
+.row{
+    display: flex;
+    margin-top: 0px;
+    flex-direction: column;
+}
+.column-3{
+    width: 100%;
+}
+.column-6{
+    width: 100%;
+}
+
+}
+
+
+
+@media (max-width:500px) {
+    /* Legend */
+.item-heading{
+    font-size: 12px;
+  }
+.legend {
+    padding: 10px 15px;  
+}
+.map-heading{
+    font-size: 10px;
+
+}
+
+.legend-item{
+    display: flex;
+
+}
+.legend-color-value{
+    font-size: 10px;
+}
+.legend-color i {
+    width: 50%;
+    height: 20px;
+    border: black 0.5px solid;
+}
+
+.legend-num-value{
+    font-size: 10px;
+}
+.report-drought p{
+    font-size: 14px;
+}
+.leaflet-touch .leaflet-control-layers-toggle {
+    width: 30px;
+    height: 30px;
+    }
+.leaflet-retina .leaflet-control-layers-toggle {
+	background-size: 20px 20px !important;
+	}
+
+
+}
+
+
+
+
+
+@media (max-width:390px) {}

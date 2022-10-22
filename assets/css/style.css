@@ -1,0 +1,444 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&family=EB+Garamond:wght@800&family=Nanum+Myeongjo&family=Open+Sans:wght@300;400;500;600;800&family=Raleway:wght@600&family=Roboto&family=Source+Sans+Pro&family=Ubuntu&display=swap');
+/* 
+font-family: 'Cormorant Garamond', serif;
+font-family: 'EB Garamond', serif;
+font-family: 'Nanum Myeongjo', serif;
+font-family: 'Open Sans', sans-serif;
+font-family: 'Raleway', sans-serif;
+font-family: 'Roboto', sans-serif;
+font-family: 'Source Sans Pro', sans-serif;
+font-family: 'Ubuntu', sans-serif;
+*/
+
+
+/* ********************* */
+/* General */
+/* ********************* */
+
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+:root{
+    --orange: #FF7F3F;
+    --light_gray: rgb(244, 243, 243);
+    --dark_gray:rgb(219, 219, 219);
+}
+a{
+    text-decoration: none;
+}
+.section-heading{
+    font-size: 18px;
+    padding: 10px;
+    color: var(--orange);
+    margin: 20px 0px;
+    font-family: "Open sans", Helvetica, Arial;
+    border-bottom: 2px solid rgb(198, 198, 198);
+}
+.section{
+    margin: 50px;
+}
+.row{
+    display: flex;
+    margin-top: 20px;
+}
+.column-3{
+    width: 25%;
+    /* margin: 0px auto; */
+}
+.column-6{
+    width: 50%;
+}
+.content-heading{
+    font-size: 24px;
+    margin: 20px 0;
+}
+.para-content{
+    text-align: justify;
+    font-size: 18px;
+}
+.para-content a{
+    color: rgb(34, 137, 248);
+}
+/* ********************* */
+/* Navbar */
+/* ********************* */
+.nav {
+    width: 100%;
+    background-color: var(--light_gray);
+    z-index: 10000;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid rgb(168, 168, 168);
+    position: sticky;
+    top: 0;
+    max-height: 10vh;
+  }
+  .main-header{
+    color: var(--orange);
+    font-size: 14px;
+    font-weight: 800;
+    font-family: "Open sans", Helvetica, Arial;
+    text-align: center;
+    background-color: rgb(230, 230, 230);
+  }
+
+  .nav > .nav-header {
+    display: none;
+  }
+  
+  .nav > .nav-header > .nav-title {
+    display: inline-block;
+    padding: 10px;
+
+  }
+  .nav > .nav-header > .nav-title >p{
+    color: var(--orange);
+    font-size: 20px;
+    font-weight: 800;
+    font-family: "Open sans", Helvetica, Arial;
+    text-align: center;
+  }
+  
+  .nav > .nav-btn {
+    display: none;
+  }
+  
+  .nav > .nav-links {
+    margin: auto;
+  }
+  
+  .nav > .nav-links > a {
+    display: inline-block;
+    padding: 15px 10px;
+    text-decoration: none;
+    color: black;
+    font-size: 14px;
+    font-family: 'Raleway', sans-serif;
+    margin: 0 5px;
+  }
+  
+  .nav > .nav-links > a:hover {
+    background-color: var(--dark_gray);
+  }
+ .active-nav {
+    background-color: var(--dark_gray);
+  }
+  
+  .nav > #nav-check {
+    display: none;
+  }
+  
+
+  .navbar-dropdown {
+    display: inline-block;
+    
+  }
+  .navbar-dropdown .dropbtn {
+    display: inline-block;
+    font-size: 14px;
+    font-family: 'Raleway', sans-serif;
+    color: #000000;
+    padding: 15px 10px;
+    border: none;
+    background-color: var(--light_gray);
+    margin: 0 5px;
+
+  }
+  .navbar-dropdown .dropbtn:hover {
+    background-color: var(--dark_gray);
+    cursor: pointer;
+  }
+  .navbar-dropdown .dropbtn-active{
+    background-color: var(--dark_gray);
+    cursor: pointer;
+  }
+  
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--light_gray);
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1);
+    z-index: 100000;
+    margin: 0 5px;
+
+  }
+  
+  .dropdown-content a {
+    float: none;
+    padding: 15px 10px;
+    text-decoration: none;
+    display: block;
+    color: #000000;
+    font-size: 14px;
+    font-family: 'Raleway', sans-serif;
+  }
+  .dropdown-content a:hover {
+    background-color: var(--dark_gray);
+  }
+  .navbar-dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+/* ********************* */
+/* Map */
+/* ********************* */
+
+.main{
+    padding: 0px 8%;
+    margin-bottom: 100px;   
+}
+
+.map-heading {
+    font-size: 15px;
+    color: white;
+    padding: 5px;
+    background-color: var(--orange);
+    text-align: center;
+    font-family: 'Raleway', sans-serif;
+}
+.map-span{
+    color: rgb(0, 17, 255);
+}
+#map{
+    width: calc(100% - 2px);
+    height: 75vh;
+    background-color: white;
+    border: 1px solid black;
+}
+
+/* Legend */
+.legend-panel{
+    width: 100%;
+    max-width: 1000px;
+    margin: auto;
+}
+.legend {
+    background-color: rgb(247, 238, 216);
+    padding: 10px 20px;  
+    border: none; 
+    font-family: 'Source Sans Pro', sans-serif;
+    align-items: center;
+    text-align: center;
+
+}
+.item-heading{
+    font-size: 15px;
+    padding: 5px 0;
+    font-family: 'Source Sans Pro', sans-serif;
+    text-align: center;
+    margin-top: 5px;
+
+}
+.legend-item{
+    display: flex;
+
+}
+.legend-color-value{
+    width: 50%;
+    text-align: center;
+    font-size: 18px;
+}
+
+.legend-color  {
+    display: flex;
+}
+.legend-color i {
+    width: 50%;
+    height: 20px;
+    border: black 0.5px solid;
+}
+
+.legend-num-value{
+    width: 16.6%;
+    text-align: left;
+    font-size: 16px;
+}
+
+.leaflet-control-attribution {
+    background-color: yellow !important;
+    font-size: 18px !important;
+    font-family: 'Source Sans Pro', sans-serif;
+  }
+/* Data Table */
+.data-table{
+    display: block;
+    width: 100%;
+    max-width: 1000px;
+    margin: 20px auto;
+}
+table {
+    font-size: 16px;
+    text-align: center;
+    font-family: 'Source Sans Pro', sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    margin: auto;
+  }
+  
+  td, th {
+    border: 1px solid #000000;
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #ffeed3e1;
+  }
+
+/* Time Series */
+.Timeseries-container{
+    margin: 0 auto;
+    margin-bottom: 50px;
+    width: 100%;
+    max-width: 1100px;
+}
+
+/* ********************* */
+/* Drought Reporting */
+/* ********************* */
+.report-drought{
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+.report-drought p{
+    font-size: 18px;
+    margin: 5px 10px;
+    font-family: 'Raleway', sans-serif;
+
+
+}
+.report-drought-form{
+    margin: 5px;
+    padding: 10px;
+
+}
+/* ********************* */
+/* Contact Form */
+/* ********************* */
+.contact-us-form{
+    margin-bottom: 20px;
+    padding: 10px;
+}
+.form-control{
+    width: 95%;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-family: 'Raleway', sans-serif;
+}
+.submit-button{
+    padding: 10px 15px;
+    color: #ffffff;
+    background-color: #FF7F3F;
+    border: none;
+    font-size: 16px;
+    font-family: 'Raleway', sans-serif;
+    margin-bottom: 10px;
+}
+.submit-button:hover{
+    background-color: #fb6114;
+    cursor: pointer;
+}
+.success-message{
+    font-size: 16px;
+    font-family: 'Raleway', sans-serif;
+    color: var(--orange);
+    text-align: center;
+    margin-bottom: 20px;
+  }
+.contact-image{
+    margin-bottom: 20px;
+    padding: 10px;
+
+
+
+}
+.contact-image img{
+    width: 100%;
+    max-width: 500px;
+    padding: 2px;
+    border: 1px solid black;
+
+
+
+}
+.contact-image-caption p{
+    font-size: 16px;
+    padding: 10px;
+}
+.contact-image-caption a {
+    color: var(--orange);
+    font-size: 20px;
+    font-family: "Open sans", Helvetica, Arial;
+    font-weight: 600;
+
+}
+
+
+
+
+
+/* ********************* */
+/* Footer */
+/* ********************* */
+
+
+.footer{
+    width: 100%;
+    box-sizing: border-box;
+    background-color: whitesmoke;
+    margin-top: auto;
+    box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.1), 0 0 20px 0 rgba(0, 0, 0, 0.10);
+    align-items: center;
+}
+.footer-image{
+    display: flex;
+    width: 100%;
+    text-align: center;
+    align-items: center;
+}
+.footer-logo-1{
+    position: relative;
+}
+
+.footer-logo-1 img{
+    width: 250px;
+    padding: 20px;
+}
+
+.footer-logo-2{
+    position: relative;
+}
+
+.footer-logo-2 img{
+    width: 300px;
+    padding: 20px;
+}
+.footer-menu{
+    margin-top: 20px;
+    padding: 10px;
+    text-align: right;
+    color: rgb(0, 0, 0);
+}
+
+.footer-menu a{
+    padding: 10px;
+    color: rgb(0, 0, 0);
+    font-family: 'Raleway', sans-serif;
+    font-size: 16px;
+}
+
+.footer-menu a:hover{
+    color: var(--orange);
+}
+

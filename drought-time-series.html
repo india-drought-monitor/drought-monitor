@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="India Drought Monitor: India's real-time drought condition and forecast">
+    <title>Drought Time Series | India Drought Monitor</title>
+    <link rel="shortcut icon" href="assets/images/logo.png">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
+
+</head>
+
+<body>
+    <div class="main-header">
+        <h1>India Drought Monitor</h1>
+    </div>
+    <div class="nav">
+        <input type="checkbox" id="nav-check">
+        <div class="nav-header">
+            <div class="nav-title">
+                <p>India Drought Monitor</p>
+            </div>
+        </div>
+        <div class="nav-btn">
+            <label for="nav-check">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+        </div>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">Area Under Drought</a>
+            <a href="drought-early-warning-system.html" class="nav-link">Drought Early Warning System</a>
+            <a href="drought-time-series.html" class="nav-link active-nav">Drought Time Series</a>
+            <div class="navbar-dropdown">
+                <button class="nav-link dropbtn"> Drought Forecast</button>
+                <div class="dropdown-content">
+                    <a href="drought-forecast.html">Quantitative Drought Forecast</a>
+                    <a href="drought-outlook.html">Drought Outlooks</a>
+                </div>
+            </div>
+
+            <div class="navbar-dropdown">
+                <button class="nav-link dropbtn"> Streamflow Monitor</button>
+                <div class="dropdown-content">
+                    <a href="streamflow-monitor-7d.html">7 Days Mean Streamflow Percentile</a>
+                    <a href="streamflow-monitor-30d.html">30 Days Mean Streamflow Percentile</a>
+                </div>
+            </div>
+            <div class="navbar-dropdown">
+                <button class="nav-link dropbtn"> Drought Types</button>
+                <div class="dropdown-content">
+                    <a href="standardized-precipitation-index.html">Standardized Precipitation Index (SPI)</a>
+                    <a href="standardized-runoff-index.html">Standardized Runoff Index (SRI)</a>
+                    <a href="standardized-soil-moisture-index.html">Standardized Soil Moisture Index (SSI)</a>
+                </div>
+            </div>
+            <a href="drought-reporting.html" class="nav-link">Drought Reporting</a>
+            <a href="contact.html" class="nav-link"> Contact Us</a>
+        </div>
+    </div>
+
+    <div class="section-heading">
+        <h1>Drought Time Series</h1>
+    </div>
+
+    <div class="Timeseries-container">
+        <div id='timeSeries'></div>
+    </div>
+
+
+    <div class="footer">
+        <div class="footer-image">
+            <div class="footer-logo-2">
+                <a href="https://vmishra.people.iitgn.ac.in/water&climate/" target="_blank"><img
+                        src="assets/images/wcl_iitgn.png" alt="WCl IITGN"></a>
+            </div>
+            <div class="footer-logo-1">
+                <a href="https://dic.gov.in/" target="_blank"> <img src="assets/images/Media-Lab-Asia.png"
+                        alt="Media Lab Asia"> </a>
+            </div>
+        </div>
+
+        <div class="footer-menu">
+            <a href="disclaimer.html">Disclaimer</a> |
+            <a href="acknowledgement.html">Acknowledgement</a> |
+            <a href="contact.html">Contact Us</a>
+        </div>
+    </div>
+
+    <script src='https://cdn.plot.ly/plotly-2.14.0.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js'></script>
+
+    <script>
+        d3.csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vTKMBEf_Nw0wMC11pqIICU70PvOp0KCjsnM-8uy0aKj0i5Y8krCEd5tDsFOlXfuMw/pub?output=csv", function (err, rows) {
+
+            function unpack(rows, key) {
+                return rows.map(function (row) { return row[key]; });
+            }
+            var year1 = unpack(rows, 'Var1');
+            var month1 = unpack(rows, 'Var2');
+            var date1 = unpack(rows, 'Var3');
+
+            var resultDate = [];
+            for (var i = 0; i < month1.length; i++)
+                resultDate.push(year1[i] + "-" + month1[i] + "-" + date1[i]);
+
+
+            var trace1 = {
+                name: 'D0-D4',
+                x: resultDate,
+                y: unpack(rows, 'Var5'),
+                fill: 'tonexty',
+                type: "scatter",
+                mode: 'none',
+                fillcolor: "yellow",
+            }
+
+            var trace2 = {
+                name: 'D1-D4',
+                x: resultDate,
+                y: unpack(rows, 'Var6'),
+                fill: 'tonexty',
+                type: "scatter",
+                mode: 'none',
+                fillcolor: "rgb(252, 214, 148)",
+            }
+            var trace3 = {
+                name: 'D2-D4',
+                x: resultDate,
+                y: unpack(rows, 'Var7'),
+                fill: 'tonexty',
+                type: "scatter",
+                mode: 'none',
+                fillcolor: "orange",
+            }
+            var trace4 = {
+                name: 'D3-D4',
+                x: resultDate,
+                y: unpack(rows, 'Var8'),
+                fill: 'tonexty',
+                type: "scatter",
+                mode: 'none',
+                fillcolor: "red",
+            }
+            var trace5 = {
+                type: "scatter",
+                name: 'D4',
+                x: resultDate,
+                y: unpack(rows, 'Var9'),
+                fill: 'tonexty',
+                type: "scatter",
+                mode: 'none',
+                fillcolor: "brown",
+            }
+            var data = [trace5, trace4, trace3, trace2, trace1];
+            var layout = {
+                title: 'Drought Affected Area in India (%)',
+                xaxis: {
+                    autorange: true,
+                    // range: ['2022-01-1', '2022-12-31'],
+                    rangeselector: {
+                        buttons: [
+                            {
+                                count: 1,
+                                label: '1 Month',
+                                step: 'month',
+                                stepmode: 'backward'
+                            },
+                            {
+                                count: 3,
+                                label: '3 Month',
+                                step: 'month',
+                                stepmode: 'backward'
+                            },
+                            {
+                                count: 6,
+                                label: '6 Month',
+                                step: 'month',
+                                stepmode: 'backward'
+                            },
+                            { step: 'all' }
+                        ]
+                    },
+                    rangeslider: { range: ['2021-07-14', '2022-12-31'] },
+                    type: 'date'
+                },
+                yaxis: {
+                    autorange: true,
+                    range: [0, 100],
+                    type: 'linear',
+                    title: 'Drought Area (%)'
+                }
+            };
+
+            Plotly.newPlot('timeSeries', data, layout);
+        })
+
+    </script>
+
+
+
+
+</body>
+
+</html>
